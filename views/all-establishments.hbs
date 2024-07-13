@@ -1,0 +1,89 @@
+   
+    <div class="bar-container container-template">
+        <div class="bar-title">
+            <span class="white">SORT</span>
+            &nbsp;
+            <span class="yellow">BY</span>
+        </div>
+        
+        <div class="sort-options">
+            <div class="category-dropdown-container">
+                <div class="category-dropdown-title">
+                    Highest Rated
+                </div> 
+                <div class="category-options-container">
+                    <p class="category-option" onclick="changeText(this)">Most Popular</p>
+                    <p class="category-option" onclick="changeText(this)">Most Reviewed</p>
+                    <p class="category-option" onclick="changeText(this)">Highest Rated</p>
+                </div>
+            </div>
+            
+            <div class="price-range-container">
+                <button class="price-button-outer-left">₱</button>
+                <button class="price-button-inner">₱₱</button>
+                <button class="price-button-inner">₱₱₱</button>
+                <button class="price-button-outer-right">₱₱₱₱</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="tags-container container-template">
+        <div class="bar-title">Tags:</div>
+        <div class="tagInput">
+            <form id="tagForm">
+                <div class="input-wrap">
+                    <input type="text" placeholder="Add a tag..." id="tag-input" maxlength="25" autocomplete="off"/>
+                </div>
+            </form>
+        </div>
+        <div class="tags"> </div>
+    </div>
+
+
+<div class="est-container">
+
+{{#each establishmentsArray}}
+
+    {{#each this}}
+     {{#if this.name}}
+    <div class="est-content">
+      <img src="/view-establishments-section/assets/est/content-cover/{{this.coverImage}}" class="est-cover">
+      <div class="est-title-container">
+        <div class="est-title">{{this.name}}</div>
+        <div class="est-rating-container">
+          <span class="est-rating">{{rating}}</span>
+          <img src="/view-establishments-section/assets/est/content-icons/rating-icon.png" alt="Rating Icon" class="est-rating-icon">
+        </div>
+      </div>
+      <div class="est-subtitle-container">
+        <div class="est-price bold">{{priceRange.[0]}}</div>
+        <div class="est-price">{{priceRange.[1]}}</div>
+        &nbsp; • &nbsp;
+        
+        {{#each this.tags}}
+          <span class="food-tag">{{this}}</span>
+        {{/each}}
+
+      </div>
+      <div class="est-description-container">
+        <img src="/view-establishments-section/assets/est/content-icons/review-icon.png" alt="Review Icon" class="est-review-icon">
+        <div class="est-description">{{description}}</div>
+      </div>
+
+      <div class="est-review-section">
+        <div class="{{addReviewClass}}">Add Review</div>
+        <div class="{{reviewsButtonClass}}">View Review</div>
+      </div>
+    </div>
+    {{/if}}
+    
+    {{/each}}
+
+  {{/each}}
+
+</div>
+
+    <div class="add-container"> </div>
+
+    <div class="view-container"> </div>
